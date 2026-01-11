@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+Brand Colors: Cyan #3bc9ea, Red #ee3525, White #ffffff
+*/
+
+/* Custom Fonts */
+@font-face {
+  font-family: 'Champagne Limousines';
+  src: url('/fonts/Champagne_Limousines.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Champagne Limousines';
+  src: url('/fonts/Champagne_Limousines_Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Champagne Limousines';
+  src: url('/fonts/Champagne_Limousines_Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Champagne Limousines';
+  src: url('/fonts/Champagne_Limousines_Bold_Italic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Milk Cake';
+  src: url('/fonts/Milk_Cake.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 5%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 5%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 5%;
+
+    --primary: 4 85% 54%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 192 80% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 4 85% 54%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 4 85% 54%;
+
+    --radius: 0.75rem;
+    
+    /* LiftUp Brand Colors */
+    --brand-cyan: 192 80% 58%;
+    --brand-cyan-dark: 192 80% 45%;
+    --brand-cyan-light: 192 80% 70%;
+    --brand-red: 4 85% 54%;
+    --brand-red-dark: 4 72% 45%;
+    --brand-red-light: 4 85% 65%;
+    --brand-black: 0 0% 5%;
+    --brand-white: 0 0% 100%;
+    
+    /* Shadow & Glow */
+    --shadow-glow: 0 0 40px hsl(192 80% 58% / 0.3);
+    --shadow-premium: 0 20px 60px -15px hsl(0 0% 0% / 0.3);
+    
+    /* Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 192 80% 58%;
+  }
+
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 4 85% 54%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 192 80% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 4 85% 54%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 4 85% 54%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 192 80% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 192 80% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  p {
+    @apply font-bold;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply text-primary;
+  }
+  
+  .glow-cyan {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .glow-red {
+    box-shadow: 0 0 40px hsl(4 85% 54% / 0.3);
+  }
+  
+  .premium-shadow {
+    box-shadow: var(--shadow-premium);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+  
+  .tilt-hover {
+    @apply transition-transform duration-300;
+  }
+  
+  .tilt-hover:hover {
+    transform: perspective(1000px) rotateX(2deg) rotateY(5deg) scale(1.02);
+  }
+  
+  .playful-card {
+    @apply transition-all duration-500;
+  }
+  
+  .playful-card:hover {
+    transform: translateY(-8px) rotate(1deg);
+    box-shadow: 0 20px 40px -10px hsl(var(--primary) / 0.4);
+  }
+
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(2deg); }
+    75% { transform: rotate(-2deg); }
+  }
+  
+  .animate-wiggle {
+    animation: wiggle 0.5s ease-in-out;
+  }
+}
